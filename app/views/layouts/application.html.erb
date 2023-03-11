@@ -7,10 +7,70 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "top","new", :media => "all" %>
+    
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+  <header>
+        <nav class="navbar Navbar">
+          <div class="container-fluid">
+            <a href="/"><img class="Navbar__logo" alt="サイトロゴ" src="/logo.jpeg"></a>
+
+            <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+              <ul class="navbar-nav flex-row align-items-center">
+                <li class="nav-item NavItem">
+                    
+                        <button class="name">名前: <%= current_user.name %> </button>
+
+                  
+                    <ul class = "ddmenu">
+                        <li><a href="#">施設の新規登録</a></li>
+                        <li><a href="#">予約済み一覧</a></li>
+                        <li><a href="#">登録済み一覧</a></li>
+                        <li><%= link_to "アカウント設定", "/users/show" %></li>
+                        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li> <!-- ログアウトをする -->
+                    </ul>
+                  
+                  <% else %>
+                                </li>
+                
+                                <li class="nav-item NavItem">
+                                  <!-- ユーザーがログインしていなかった時の処理 -->
+
+                  <%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->
+                  <%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->
+                <% end %>
+                </li>
+              </ul>
+              
+          </div>
+        </nav>
+    </header>
+
+    <main>
+    
+      <%= yield %>
+    </main>
+
+    <footer class="Footer">
+      <div class="container-fluid">
+        <a href="/"><img class="Footer__logo" alt="サイトロゴ" src="/logo.jpeg" /></a>
+
+        <p class="Footer__copyright">
+          Copyright © HONTA Share 2023 All rights reserved
+        </p>
+      </div>
+    </footer>
+    <script>
+    
+        const menuButton = document.querySelector('.name');
+        const menu = document.querySelector('.ddmenu');
+
+        menuButton.addEventListener('click', () => {
+        menu.classList.toggle('show');});
+       
+    </script>
   </body>
 </html>

@@ -1,0 +1,38 @@
+<%= render "shared/set-up" %>
+    <h3>プロフィール</h3>
+    
+
+            <form enctype="multipart/form-data" action="/users/profile" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="yWgubpJZgXDL7DBjWyYgoC3f/0Osv3iTGWLq2/vzJOoj27f5nJY29Buh9mmQzTob3KZuSQjLZF1OCO51CdyOiA==" />
+                
+                            <p>
+                                <img alt="アイコン画像" src="" />
+                               
+                                <label class="FileUploadArea__label" for="user_image">
+                                  
+                                  <input type="file" name="user[image]" id="user_image" value="画像アップロード" />
+                                </label>          
+                            </p>
+                
+
+                <div>
+                    <label>名前</label>
+                        <div>
+                            <input placeholder="名前を入力" type="text"/>
+                        </div>
+                </div>
+
+                <div>
+                    <label>自己紹介</label>
+
+                    <div>
+                      <textarea placeholder="自己紹介を入力" ></textarea>
+                    </div>
+                </div>
+
+                <div>
+                    <input type="submit" name="commit" value="保存" />
+                </div>
+            </form>   
+
+
+<%= link_to "戻る", "/profile/show", style: "color: blue;" %>
