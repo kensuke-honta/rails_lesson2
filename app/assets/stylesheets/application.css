@@ -12,6 +12,7 @@ body {
 
 header {
     display: block;
+    
 }
 
 .name {
@@ -25,18 +26,18 @@ header {
 
 .Navbar {
     background-color: #1c1d3b;
-    height: 80px;
+    height: 150px;
 }
 
 .navbar>.container-fluid{
     display: flex;
     flex-wrap: inherit;
     align-items: center;
-    justify-content: space-between;
     padding: 0 32px;
-    
-    
-    
+}
+
+.header-item{
+    margin-left: auto;
 }
 
 .ddmenu{
@@ -54,9 +55,10 @@ ul{
 }
 
 a {
-    color:#fff;
+    color:red;
     text-decoration: none;
 }
+
 
 
 

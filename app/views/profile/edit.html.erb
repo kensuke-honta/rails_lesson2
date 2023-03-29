@@ -1,38 +1,35 @@
 <%= render "shared/set-up" %>
-    <h3>プロフィール</h3>
     
+    <%= form_with model: @user do |f| %>
+   <table>
+   <tr>
+    <div class="field">
+        <%= f.label :プロフィール画像 %>
+        <%= f.file_field :avatar %>
+    </div>
+    <div>
+    <% if @user.avatar? %>
+            <%= image_tag @user.avatar.url %>
+            <% else %>
+            <%= image_tag ("/default-avatar.png") %>
+          <% end %>
+    </div>
+     </tr>
+     <tr>
+       <th><%= f.label :name ,"名前" %></th>
+       <td><%= f.text_field :name %></td>
+     </tr>
+     
+     <tr>
+       <th><%= f.label :introduction ,"自己紹介(*２００文字以内で書いてください)" %></th>
+       <td><%= f.text_area :introduction %></td>
+     </tr>
+   </table>
 
-            <form enctype="multipart/form-data" action="/users/profile" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="yWgubpJZgXDL7DBjWyYgoC3f/0Osv3iTGWLq2/vzJOoj27f5nJY29Buh9mmQzTob3KZuSQjLZF1OCO51CdyOiA==" />
-                
-                            <p>
-                                <img alt="アイコン画像" src="" />
-                               
-                                <label class="FileUploadArea__label" for="user_image">
-                                  
-                                  <input type="file" name="user[image]" id="user_image" value="画像アップロード" />
-                                </label>          
-                            </p>
-                
+   <div class="actions">
+    <%= f.submit "保存" %>
+ <%= link_to "戻る", "/profile/show", style: "color: blue;" %>
+  </div>
 
-                <div>
-                    <label>名前</label>
-                        <div>
-                            <input placeholder="名前を入力" type="text"/>
-                        </div>
-                </div>
+<% end %>
 
-                <div>
-                    <label>自己紹介</label>
-
-                    <div>
-                      <textarea placeholder="自己紹介を入力" ></textarea>
-                    </div>
-                </div>
-
-                <div>
-                    <input type="submit" name="commit" value="保存" />
-                </div>
-            </form>   
-
-
-<%= link_to "戻る", "/profile/show", style: "color: blue;" %>

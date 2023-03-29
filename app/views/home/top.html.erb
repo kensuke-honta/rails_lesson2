@@ -7,9 +7,8 @@
     </h2>
 
     <div class="FirstViewSearch">
-      <form action="https://rails-02-sample.herokuapp.com/rooms" accept-charset="UTF-8" method="get">
-        <input class="form-control FirstViewSearch__input" placeholder="エリア名を入力" type="text" name="area" id="area" />
-        <input type="submit" name="commit" value="検索" class="btn FirstViewSearch__button" data-disable-with="検索" />
+      <form action="http://localhost:3000/search?address=&keyword=&commit=%E6%A4%9C%E7%B4%A2" accept-charset="UTF-8" method="get">
+        <input type="submit" name="commit" value="施設を探す" class="btn FirstViewSearch__button" data-disable-with="検索" />
 </form>    </div>
   </section>
 </div>
@@ -20,7 +19,7 @@
     </h2>
 
     <div class="RecommendAreas">
-      <a class="RecommendArea RecommendArea--tokyo" href="https://rails-02-sample.herokuapp.com/rooms?area=%E6%9D%B1%E4%BA%AC">
+      <a class="RecommendArea RecommendArea--tokyo" href="http://localhost:3000/search?address=%E6%9D%B1%E4%BA%AC&keyword=&commit=%E6%A4%9C%E7%B4%A2">
         <span class="RecommendArea__name RecommendArea__name--ja">東京</span>
 
         <span class="RecommendArea__name RecommendArea__name--en">
@@ -30,7 +29,7 @@
           Tokyo
         </span>
 </a>
-      <a class="RecommendArea RecommendArea--osaka" href="https://rails-02-sample.herokuapp.com/rooms?area=%E5%A4%A7%E9%98%AA">
+      <a class="RecommendArea RecommendArea--osaka" href="http://localhost:3000/search?address=%E5%A4%A7%E9%98%AA&keyword=&commit=%E6%A4%9C%E7%B4%A2">
         <span class="RecommendArea__name RecommendArea__name--ja">大阪</span>
 
         <span class="RecommendArea__name RecommendArea__name--en">
@@ -40,7 +39,7 @@
           Osaka
         </span>
 </a>
-      <a class="RecommendArea RecommendArea--kyoto" href="https://rails-02-sample.herokuapp.com/rooms?area=%E4%BA%AC%E9%83%BD">
+      <a class="RecommendArea RecommendArea--kyoto" href="http://localhost:3000/search?address=%E4%BA%AC%E9%83%BD&keyword=&commit=%E6%A4%9C%E7%B4%A2">
         <span class="RecommendArea__name RecommendArea__name--ja">京都</span>
 
         <span class="RecommendArea__name RecommendArea__name--en">
@@ -50,7 +49,7 @@
           Kyoto
         </span>
 </a>
-      <a class="RecommendArea RecommendArea--sapporo" href="https://rails-02-sample.herokuapp.com/rooms?area=%E6%9C%AD%E5%B9%8C">
+      <a class="RecommendArea RecommendArea--sapporo" href="http://localhost:3000/search?address=%E6%9C%AD%E5%B9%8C&keyword=&commit=%E6%A4%9C%E7%B4%A2">
         <span class="RecommendArea__name RecommendArea__name--ja">札幌</span>
 
         <span class="RecommendArea__name RecommendArea__name--en">

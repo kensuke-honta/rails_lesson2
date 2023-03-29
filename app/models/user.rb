@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :avatar, AvatarUploader
   validates :introduction, presence: false, length: { maximum: 200 } # 自己紹介の最高文字数は50文字
+
+  has_many :rooms
+  
+  has_many :reservations
 end

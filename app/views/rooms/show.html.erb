@@ -1,0 +1,49 @@
+<h3>施設詳細</h3>
+
+<%= render "shared/sarch" %>
+<p>--------------------------------------------------------------------------------------</p>
+<table>
+  <tr>
+    <th>施設画像</th>
+    <td><% if @room.image? %>
+                      <%= image_tag @room.image.url %>
+                      <% else %>
+                      <%= image_tag ("/sisetu.png") %>
+                    <% end %>
+                </td>
+  </tr>
+   <tr>
+    <th>施設名</th>
+    <td><%= @room.name %></td>
+  </tr>
+  <tr>
+    <th>宿泊料金（/日）</th>
+    <td><%= @room.price %></td>
+  </tr>
+  <tr>
+    <th>紹介文</th>
+    <td><%= @room.introduction %></td>
+  </tr>
+</table>
+
+
+
+
+<div>
+  <ul>    
+  <%= link_to "予約画面", new_reservation_path(room_id: @room.id), style: "color: blue;" %>
+</ul>
+
+    <ul>
+        <%= link_to "戻る", request.referrer || root_path,style: "color: blue;" %>
+    </ul>
+</div>
+
+
+
+<style>
+table img{
+  width: 350px;
+  height: 250px;
+ }
+ </style>

@@ -1,16 +1,23 @@
 <%= render "shared/set-up" %>
 
 <div class="AccountInformation__header">
-        <h3>プロフィール</h3>
 
-        <a class="AccountInformation__link" href="/users/profile/edit">
-          <img alt="編集アイコン">
-          <%= current_user.avatar %>
-          編集
-</a>      </div>
+        <h3>プロフィール</h3>
+        <h5>アイコン画像</h5>
+        
+<!-- ビュー -->
+
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar.url %>
+        <% else %>
+          <%= image_tag ("/default-avatar.png") %>
+        <% end %>
+
+          
+        
+</div>
 
       <div class="AccountInformation__input-group">
-        <label class="AccountInformation__label" for="image">アイコン画像</label>
 
         
       </div>
@@ -25,7 +32,8 @@
         <label class="AccountInformation__label" for="introduction">自己紹介</label>
 
         <p class="AccountInformation__value">
-          <%= current_user.name %>
+          <%= current_user.introduction %>
+
         </p>
       </div>
     

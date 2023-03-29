@@ -11,3 +11,12 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+document.addEventListener('turbolinks:load', () => {
+    const menuButton = document.querySelector('.name');
+    const menu = document.querySelector('.ddmenu');
+
+    menuButton.addEventListener('click', (event) => {
+      console.log('ボタンがクリックされました');
+      menu.classList.toggle('show');
+    });
+  });

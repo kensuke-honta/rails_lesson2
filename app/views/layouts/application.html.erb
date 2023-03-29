@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "top","new", :media => "all" %>
-    
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 
   <body>
   <header>
@@ -18,23 +17,30 @@
           <div class="container-fluid">
             <a href="/"><img class="Navbar__logo" alt="サイトロゴ" src="/logo.jpeg"></a>
 
-            <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
-              <ul class="navbar-nav flex-row align-items-center">
-                <li class="nav-item NavItem">
-                    
-                        <button class="name">名前: <%= current_user.name %> </button>
+            <div class ="header-item">
+              <% if user_signed_in? %>
+                <% if current_user.avatar? %>
+                  <%= image_tag current_user.avatar.url,class: "user-avatar", style: "float: right;" %>
+                <% else %>
+                  <%= image_tag ("/default-avatar.png"),class: "user-avatar", style: "float: right;" %>
+              <% end %>
 
-                  
-                    <ul class = "ddmenu">
-                        <li><a href="#">施設の新規登録</a></li>
-                        <li><a href="#">予約済み一覧</a></li>
-                        <li><a href="#">登録済み一覧</a></li>
+
+              <ul class="navbar-nav flex-row align-items-center">
+                
+                        <button class="name">名前: <%= current_user.name %> </button>
+            
+
+                    <ul class = "ddmenu" data-turbolinks="false">
+                        <li><%= link_to "施設の新規登録", "/rooms/new" %></li>
+                        <li><%= link_to "予約済み一覧", "/reservations" %></li>
+                        <li><%= link_to "登録済み一覧", "/rooms" %></li>
                         <li><%= link_to "アカウント設定", "/users/show" %></li>
                         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li> <!-- ログアウトをする -->
                     </ul>
-                  
+                  </div>
                   <% else %>
-                                </li>
+                               
                 
                                 <li class="nav-item NavItem">
                                   <!-- ユーザーがログインしていなかった時の処理 -->
@@ -63,14 +69,5 @@
         </p>
       </div>
     </footer>
-    <script>
-    
-        const menuButton = document.querySelector('.name');
-        const menu = document.querySelector('.ddmenu');
-
-        menuButton.addEventListener('click', () => {
-        menu.classList.toggle('show');});
-       
-    </script>
   </body>
 </html>

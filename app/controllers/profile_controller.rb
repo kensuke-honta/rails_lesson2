@@ -1,17 +1,29 @@
 class ProfileController < ApplicationController
   def show
+    @user = current_user
+    
   end
   
-  def update
-    @user = User.find(params[:id])
-    if @user.update(params.require(:user).permit(:avatar, :name, :introduction))
-      flash[:notice] = "ユーザーIDが「#{@user.id}」の情報を更新しました"
-      redirect_to :users
-    else
-      render "edit"
-    end
+  def edit
+    @user = User.find(current_user.id)
   end
 
-  def edit
+  
+
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      @user.avatar.recreate_versions! if @user.avatar.present?
+      redirect_to action: :show
+    else
+      redirect_to action: :show
+    end
+  end
+  
+  private
+ 
+  
+  def user_params
+    params.require(:user).permit(:avatar, :name, :introduction)
   end
 end

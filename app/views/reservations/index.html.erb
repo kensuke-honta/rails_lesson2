@@ -1,0 +1,60 @@
+<h1>予約済み画面一覧です</h1>
+<table>
+           <thead>
+             <tr>
+                <th>画像</th>
+                <th>施設名</th>
+                <th>紹介文</th>
+                <th>合計料金</th>
+                <th>チェックイン日</th>
+                <th>チェックアウト日</th>
+                <th>予約確定日時</th>
+             </tr>
+           </thead>
+
+         <tbody>
+           <% @reservations.each do |reservation| %>
+             <tr>
+                <td><% if reservation.room.image? %>
+                
+                      <%= image_tag reservation.room.image.url %>
+                      <% else %>
+                      <%= image_tag ("/sisetu.png") %>
+                    <% end %>
+                </td>
+                <td><%= link_to reservation.room.name, room_path(reservation.room.id), style: "color: black;" %></td>
+                <td><%= reservation.room.introduction %></td>
+                <td><%= reservation.room.price  * reservation.check_out_date.try(:-, reservation.check_in_date).to_i * reservation.num_of_guests.to_i %></td>
+                <td><%= reservation.check_in_date.try(:strftime, "%Y/%m/%d") %></td>
+                <td><%= reservation.check_out_date.try(:strftime, "%Y/%m/%d") %></td>
+                <td><%= reservation.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+
+                
+             </tr>
+           <% end %>
+         </tbody>
+          </table>
+</div>
+
+ <style>
+table th {
+   background-color: #fbc25b;
+   padding: 10px 20px;
+ }
+table img{
+  width: 350px;
+  height: 250px;
+
+ }
+ 
+ table td {
+   background-color: #f9ecd5;
+   padding: 10px 20px;
+ }
+ 
+ 
+ .notice {
+   background-color: #ccf;
+   padding: 5px;
+ }
+ </style>

@@ -1,0 +1,31 @@
+
+
+
+ <h1>予約確認画面</h1>
+ <p>以下の予約内容を確認してください。</p>
+
+
+
+<dl>
+	<dt>チェックイン日</dt>
+	<dd><%= @reservation.check_in_date %></dd>
+	<dt>チェックアウト日</dt>
+	<dd><%= @reservation.check_out_date %></dd>
+	<dt>宿泊日数</dt>
+	<dd><%= (@reservation.check_out_date - @reservation.check_in_date).to_i %></dd>
+  <dt>人数</dt>
+	<dd><%= @reservation.num_of_guests %></dd>
+  <dt>支払い金額</dt>
+	<dd><%= @reservation.room.price * @reservation.num_of_guests * (@reservation.check_out_date - @reservation.check_in_date).to_i %></dd>
+
+</dl>
+ 
+ <%= form_for @reservation, method: :post, url: reservations_path do |f|%>
+    <%= f.hidden_field :check_in_date %>
+		<%= f.hidden_field :check_out_date %>
+		<%= f.hidden_field :num_of_guests %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :room_id %>
+		<%= f.submit '予約を確定'%>
+	<% end %>
+

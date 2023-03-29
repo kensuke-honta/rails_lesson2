@@ -1,0 +1,36 @@
+<h1>新規登録</h1>
+
+
+<%= form_with model: @room do |f| %>
+  <div class="field">
+    <%= f.label :施設名 %>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :施設詳細 %>
+    <%= f.text_area :introduction, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :料金 %>
+    <%= f.number_field :price, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :住所 %>
+    <%= f.text_field :address, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :施設画像 %>
+    <%= f.file_field :image, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存" %>
+  </div>
+  <div>
+    <%= link_to "キャンセル", "/", style: "color: blue;" %>
+  </div>
+<% end %>
