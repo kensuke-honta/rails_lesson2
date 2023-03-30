@@ -1,0 +1,47 @@
+<h1>検索結果を出力するビューです</h1>
+<%= render "shared/sarch" %>
+
+<table>
+           <thead>
+             <tr>
+                <th>id</th>
+                <th>画像</th>
+                <th>施設名</th>
+                <th>紹介文</th>
+                <th>料金/日</th>
+                <th>住所</th>
+             </tr>
+           </thead>
+
+         <tbody>
+           <% @rooms.each do |room| %>
+             <tr>
+                <td><%= room.id %></td>
+                <td><%= image_tag room.image.url %></td>
+                <td class="room-name"><%= link_to room.name, room_path(room), style: "color: black;" %></td>
+                <td><%= room.introduction %></td>
+                <td><%= room.price %></td>
+                <td><%= room.address %></td>
+             </tr>
+           <% end %>
+           <p>検索結果: <%= @rooms_count %>件</p>
+
+         </tbody>
+          </table>
+
+          <style>
+                table th {
+                   background-color: #fbc25b;
+                   padding: 10px 20px;
+                 }
+
+                 table td {
+                   background-color: #f9ecd5;
+                   padding: 10px 20px;
+                 }
+
+                 .notice {
+                   background-color: #ccf;
+                   padding: 5px;
+                 }
+            </style>

@@ -1,0 +1,35 @@
+<%= render "shared/set-up" %>
+    
+    <%= form_with model: @user do |f| %>
+   <table>
+   <tr>
+    <div class="field">
+        <%= f.label :プロフィール画像 %>
+        <%= f.file_field :avatar %>
+    </div>
+    <div>
+    <% if @user.avatar? %>
+            <%= image_tag @user.avatar.url %>
+            <% else %>
+            <%= image_tag ("/default-avatar.png") %>
+          <% end %>
+    </div>
+     </tr>
+     <tr>
+       <th><%= f.label :name ,"名前" %></th>
+       <td><%= f.text_field :name %></td>
+     </tr>
+     
+     <tr>
+       <th><%= f.label :introduction ,"自己紹介(*２００文字以内で書いてください)" %></th>
+       <td><%= f.text_area :introduction %></td>
+     </tr>
+   </table>
+
+   <div class="actions">
+    <%= f.submit "保存" %>
+ <%= link_to "戻る", "/profile/show", style: "color: blue;" %>
+  </div>
+
+<% end %>
+

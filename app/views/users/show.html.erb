@@ -1,0 +1,23 @@
+<section class="container UserSection">
+  <%= render "shared/set-up" %>
+  
+        <div class="AccountInformation__header">
+            <h3>アカウント情報</h3>
+        </div>
+
+      <div class="AccountInformation__input-group">
+        <label class="AccountInformation__label" for="email">メールアドレス：<%= current_user.email %></label>
+
+        
+      </div>
+
+      <div class="AccountInformation__input-group">
+        <label class="AccountInformation__label" for="password">パスワード：＊＊＊＊＊＊</label>
+        <p class="AccountInformation__value">
+         ----------------------------------------
+        </p>
+                    <%= link_to "編集", "/users/edit", style: "color: blue;" %>
+      </div>
+    </div>
+  </div>
+</section>

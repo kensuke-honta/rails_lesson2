@@ -1,0 +1,24 @@
+<h1>予約</h1>
+
+
+<%= form_with model: @reservation, method: :post, url: reservations_confirm_path(room_id: @room) do |f| %>
+<% if @reservation.errors.any? %>
+      <% @reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+<% end %>
+
+  <dl>
+		<dt>チェックイン</dt>
+		<dd><%= f.date_field :check_in_date,  required: true %></dd>
+		<dt>チェックアウト</dt>
+		<dd><%= f.date_field :check_out_date, required: true  %></dd>
+		<dt>人数</dt>
+		<dd><%= f.number_field :num_of_guests, required: true  %></dd>
+        <%= f.hidden_field :room_id, value: @room.id%>
+	</dl>
+
+
+<%= f.submit "この日程で予約する" %>
+
+<% end %>

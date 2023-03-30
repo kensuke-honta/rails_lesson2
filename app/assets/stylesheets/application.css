@@ -1,15 +1,77 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+    margin: 0;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+header {
+    display: block;
+    
+}
+
+.name {
+    color:#fff;
+    background-color:#1c1d3b;
+}
+
+.Navbar__logo{
+    width: 220px;
+}
+
+.Navbar {
+    background-color: #1c1d3b;
+    height: 150px;
+}
+
+.navbar>.container-fluid{
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    padding: 0 32px;
+}
+
+.header-item{
+    margin-left: auto;
+}
+
+.ddmenu{
+    position: absolute;
+    display: none;
+    
+}
+
+.ddmenu.show{
+    display: block;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a {
+    color:red;
+    text-decoration: none;
+}
+
+
+
+
+
+.Footer {
+    align-items: center;
+    background-color: #1c1d3b;
+    display: flex;
+    height: 465px;
+    color:#fff;
+    padding: 0 32px;
+}
+
+.Footer__logo{
+    width: 220px;
+}
