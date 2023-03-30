@@ -11,13 +11,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
     def extension_allowlist
       %w(jpg jpeg gif png)
     end
-
-    
- 
-
-  
-
-  
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
    include CarrierWave::MiniMagick

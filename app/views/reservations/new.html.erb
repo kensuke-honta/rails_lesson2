@@ -10,12 +10,12 @@
 
   <dl>
 		<dt>チェックイン</dt>
-		<dd><%= f.date_field :check_in_date %></dd>
+		<dd><%= f.date_field :check_in_date,  required: true %></dd>
 		<dt>チェックアウト</dt>
-		<dd><%= f.date_field :check_out_date %></dd>
+		<dd><%= f.date_field :check_out_date, required: true  %></dd>
 		<dt>人数</dt>
-		<dd><%= f.number_field :num_of_guests %></dd>
-      <%= f.hidden_field :room_id, value: @room.id%>
+		<dd><%= f.number_field :num_of_guests, required: true  %></dd>
+        <%= f.hidden_field :room_id, value: @room.id%>
 	</dl>
 
 

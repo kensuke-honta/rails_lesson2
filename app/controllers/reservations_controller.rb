@@ -20,10 +20,7 @@ class ReservationsController < ApplicationController
       end
     end
     
-    def back
-      @reservation = Reservation.new(reservation_params)
-      render :new
-    end
+    
     
    
   
@@ -42,17 +39,16 @@ class ReservationsController < ApplicationController
   end
 
 
-     def show
-     
-     end
-      
-
-      
-      private
-      
-      def reservation_params
-        params.require(:reservation).permit(:check_in_date, :check_out_date, :num_of_guests, :user_id, :room_id)
-      end
+  def show
+  
+  end
+  
+   
+   private
+   
+   def reservation_params
+     params.require(:reservation).permit(:check_in_date, :check_out_date, :num_of_guests, :user_id, :room_id)
+   end
       
      
     
